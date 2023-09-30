@@ -1,0 +1,11 @@
+Project BombasticSide Eye
+
+Logo Desing in Canva
+
+post:
+
+    -Profile Pic
+    -Guest Name
+    -location of post wtr user
+    -map and location of the user in the side
+
