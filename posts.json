@@ -1,0 +1,18 @@
+[
+    {
+      "id": "1",
+      "title": "New Post Title",
+      "content": "New Post Content",
+      "createdLat": "123.456",
+      "createdLong": "789.012",
+      "other": "New Information"
+    },
+    {
+      "id": "2",
+      "title": "Post Title 2",
+      "content": "Post Content 2",
+      "createdLat": "456.789",
+      "createdLong": "012.345",
+      "other": "Other Information 2"
+    }
+]
