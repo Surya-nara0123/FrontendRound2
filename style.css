@@ -13,15 +13,25 @@ body {
 }
 
 .topBar .sideBarButton {
+    background-color: aliceblue;
     margin-right: 20px;
+    border-color: white;
 }
 
 .topBar .logoButton {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     font-weight: bold;
 }
 
+.topBar .userButton {
+    background-color: aliceblue;
+    border-color: white;
+}
+
 .topBar .userButton img {
+    border-radius: 40px;
     width: 24px;
     height: 24px;
 }
