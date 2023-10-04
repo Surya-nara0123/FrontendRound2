@@ -91,3 +91,9 @@ body {
     margin-top: 10px;
     /* Add some spacing */
 }
+
+.options {
+    position: absolute;
+    left: 1%;
+    top: 10%;
+}

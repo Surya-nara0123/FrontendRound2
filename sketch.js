@@ -74,7 +74,30 @@ document.addEventListener("DOMContentLoaded", function () {
     main()
 
 });
+var flag = false;
+function buttonOnclickHandler() {
+    if (!flag) {
+        options = document.querySelector(".options");
+        createPost = document.createElement("div");
+        createPost.className = "createPost"
+        managePosts = document.createElement("div");
+        managePosts.className = "managePosts"
+        createPost.innerHTML += "<button class='createPostButton'><h4>Create an new Post</h4></button>";
+        managePosts.innerHTML += "<button class='manageePostsButton'><h4>manage your Posts</h4></button>";
+        options.appendChild(createPost);
+        options.appendChild(managePosts);
+        flag = true;
+    } else {
+        managePosts = document.querySelector(".managePosts");
+        createPost = document.querySelector(".createPost");
+        managePosts.remove();
+        createPost.remove();
+        flag = false;
+    }
+}
 
+
+/*
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: -34.397, lng: 150.644 },
@@ -112,3 +135,5 @@ function initMap() {
         }
     });
 }
+
+*/
