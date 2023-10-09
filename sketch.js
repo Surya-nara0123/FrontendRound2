@@ -20,53 +20,63 @@ document.addEventListener("DOMContentLoaded", function () {
             // Show a map centered at latitude / longitude.
             currLoc = [latitude, longitude];
             console.log(currLoc);
-            const posts = [
-                {
-                    "id": "1",
-                    "title": "New Post Title",
-                    "content": "\t\t\tNew Post \tContent Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content ",
-                    "createdLat": 123.456,
-                    "createdLong": 789.012
-                },
-                {
-                    "id": "2",
-                    "title": "Post Title 2",
-                    "content": "Post Content 2",
-                    "createdLat": 456.789,
-                    "createdLong": 12.345
+            fetch("https://www.snucdelta.tech/api/inductions/getPosts", {
+                method: "GET",
+                withCredentials: true,
+                mode: "no-cors",
+                headers: {
+                    "X-Auth-Token": "3190b5699b3f01b17e0a3cec7ddd5876",
+                    "Content-Type": "application/json"
                 }
-            ];
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const posts = data;
 
-            const postsElement = document.querySelector(".posts");
+                    const postsElement = document.querySelector(".posts");
 
-            for (const post of posts) {
-                const postElement = document.createElement("div");
-                postElement.className = "post"
-                const heading = document.createElement("div")
-                heading.className = "heading"
-                const title = document.createElement("div");
-                title.className = "title"
-                const distance = document.createElement("div");
-                distance.className = "distance"
-                const contents = document.createElement("div");
-                contents.className = "contents"
+                    for (const post of posts) {
+                        const postElement = document.createElement("div");
+                        postElement.className = "post"
+                        const heading = document.createElement("div")
+                        heading.className = "heading"
+                        const title = document.createElement("div");
+                        title.className = "title"
+                        const distance = document.createElement("div");
+                        distance.className = "distance"
+                        const contents = document.createElement("div");
+                        contents.className = "contents"
 
-                title.innerHTML = post["title"];
+                        title.innerHTML = post["title"];
 
-                const latDiff = post["createdLat"] - currLoc[0];
-                const longDiff = post["createdLong"] - currLoc[1];
-                const distanceValue = Math.sqrt(latDiff * latDiff + longDiff * longDiff);
-                distance.innerHTML = distanceValue.toFixed(2);
+                        const R = 6371e3;
+                        const φ1 = post["createdLat"] * Math.PI / 180; // φ, λ in radians
+                        const φ2 = currLoc[0] * Math.PI / 180;
+                        const Δφ = (post["createdLat"] - currLoc[0]) * Math.PI / 180;
+                        const Δλ = (post["createdLong"] - currLoc[1]) * Math.PI / 180;
+                        const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+                            Math.cos(φ1) * Math.cos(φ2) *
+                            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-                contents.innerHTML = "<br>" + post["content"];
+                        const distanceValue = R * c / 1000; // in metres                ;
+                        distance.innerHTML = distanceValue.toFixed(2);
 
-                heading.appendChild(title);
-                heading.appendChild(distance);
-                postElement.appendChild(heading);
-                postElement.appendChild(contents);
+                        contents.innerHTML = "<br>" + post["content"];
 
-                postsElement.appendChild(postElement);
-            }
+                        heading.appendChild(title);
+                        heading.appendChild(distance);
+                        postElement.appendChild(heading);
+                        postElement.appendChild(contents);
+
+                        postsElement.appendChild(postElement);
+                    }
+                })
         } catch (error) {
             console.error("Error getting location:", error);
         }
