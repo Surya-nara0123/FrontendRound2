@@ -22,11 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(currLoc);
             fetch("https://www.snucdelta.tech/api/inductions/getPosts", {
                 method: "GET",
-                withCredentials: true,
                 mode: "no-cors",
                 headers: {
-                    "X-Auth-Token": "3190b5699b3f01b17e0a3cec7ddd5876",
-                    "Content-Type": "application/json"
+                    "X-Auth-Token": "3190b5699b3f01b17e0a3cec7ddd5876"
                 }
             })
                 .then(response => {
