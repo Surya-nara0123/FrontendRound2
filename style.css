@@ -1,21 +1,27 @@
+/* General Styling */
 body {
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0; /* Light gray background */
+    font-family: Arial, sans-serif;
 }
 
+/* Top Bar Styling */
 .topBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background-color: aliceblue;
+    background-color: #ffcc00; /* Yellow background */
     height: 70px;
+    color: #333; /* Dark text color */
 }
 
 .topBar .sideBarButton {
-    background-color: aliceblue;
+    background-color: #ffcc00; /* Yellow background for the button */
     margin-right: 20px;
     border-color: white;
+    color: #333; /* Dark text color */
 }
 
 .topBar .logoButton {
@@ -23,20 +29,13 @@ body {
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+    margin-right: 50px; /* Increased margin for spacing */
+    color: #333; /* Dark text color */
 }
 
-.topBar .userButton {
-    background-color: aliceblue;
-    border-color: white;
-}
-
-.topBar .userButton img {
-    border-radius: 40px;
-    width: 24px;
-    height: 24px;
-}
-
-.posts {position: absolute;
+/* Posts Styling */
+.posts {
+    position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
     display: flex;
@@ -44,56 +43,104 @@ body {
     align-items: left;
     max-width: 100%;
     justify-content: center;
+    background-color: #fff; /* White background for posts */
+    padding: 20px;
 }
 
-/* Style for the post container */
+/* Post Container Styling */
 .post {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    /* Center the content horizontally */
     width: 600px;
     padding: 10px;
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* Adjust this as needed */
+    background-color: #f5f5f5; /* Light gray background for each post */
+    color: #333; /* Dark text color */
 }
 
-/* Style for the heading container */
+/* Heading Container Styling */
 .heading {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding-bottom: 5px;
-    /* Add some spacing between title and distance */
     border-bottom: 1px solid #ccc;
-    /* Add a separator line between title and content */
+    color: #666; /* Slightly lighter text color for headings */
 }
 
-/* Style for the title element */
+/* Title Styling */
 .title {
     flex: 1;
-    /* Expand to fill available space */
+    font-weight: bold; /* Bold title */
+    color: #000; /* Black title color */
 }
 
-/* Style for the distance element */
+/* Distance Styling */
 .distance {
     margin-left: 10px;
-    /* Add some spacing between title and distance */
-    color: #888;
-    /* Optionally, adjust the color for distance */
+    color: #777; /* Lighter gray for distance */
 }
 
-/* Style for the contents element */
+/* Contents Styling */
 .contents {
     margin-top: 10px;
-    /* Add some spacing */
+    color: #444; /* Slightly darker text color for content */
 }
 
-.options {
-    position: absolute;
-    left: 1%;
-    top: 10%;
+/* Create Post Styling */
+.createPost1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffcc00; /* Yellow background for create post */
+}
+
+.createPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 20px auto;
+    margin-left: 0%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffcc00; /* Yellow background for create post */
+}
+
+
+/* Post Title and Content Inputs Styling */
+.createPost1 .postTitle input,
+.createPost1 .postContents input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Post Draft Button Styling */
+.createPost1 .postDraft {
+    background-color: #009900; /* Bright green for the post button */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.createPost1 .postDraft:hover {
+    background-color: #007700; /* Slightly darker green on hover */
 }

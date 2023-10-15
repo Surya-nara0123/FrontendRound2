@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <script src="sketch.js"></script>
-    <!--Top of the screen always-->
+    <script src="sketch2.js"></script>
     <div class="topBar">
         <div class="sideBarButtonImg">
             <button class="sideBarButton" onclick="buttonOnclickHandler()"><img src="sideBarButtonImage.webp" alt="sideBarButton" width="24" height="24"></button>
@@ -23,16 +22,17 @@
 
     <div class="options"></div>
 
-
-    <!--Displays all the post-->
-    <div class="posts">
-
+    <div class="createPost1">
+        <div class="postTitle">
+            <input type="text" class="postTitleInput"  placeholder="Title">
+        </div>
+        <div class="postContents">
+            <input type="text" class="postContentsInput" placeholder="Contents">
+        </div>
+        <button class="postDraft" onclick="buttonclickerhandler1()">posts</button>
+    </div>
     </div>
 
-    <!--Show the current location of the user-->
-    <div class="maps">
-        <div id="mapThumbnail" style="width: 200px; height: 200px;"></div>
-    </div>
 </body>
 
 </html>
