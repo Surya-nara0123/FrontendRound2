@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 .then(data => {
                     const posts = data;
+                    console.log(data)
 
                     const postsElement = document.querySelector(".posts");
 
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
                         
                             // Calculate the distance
-                            const distance = earthRadius * c;
+                            const distance = Math.round(earthRadius * c);
                             
                             return distance; // Distance in kilometers
                         }
